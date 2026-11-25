@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1c1618">
+  <meta name="description" content="Discover serene oceanfront stays and signature resort experiences at Sunset Resort.">
+  <title>Sunset Resort | Stay Where the Day Slows Down</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalogue">Skip to catalogue</a>
+  <header class="site-header" id="home">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Sunset Resort home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span><strong>Sunset</strong><small>Resort</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#catalogue">Catalogue</a>
+        <button class="nav-cart-link" type="button" data-open-cart>Cart <b class="nav-cart-count" aria-live="polite">0</b></button>
+        <a href="#account" id="nav-account-link" data-open-account data-account-default="login"><span id="nav-account-label">Account</span></a>
+        <button class="nav-logout" id="nav-logout" type="button" hidden>Log Out</button>
+      </div>
+      <button class="cart-trigger" type="button" aria-label="Open booking cart, 0 items" aria-controls="booking-cart" data-open-cart>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3 0V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>My stay</span><b class="cart-count" aria-live="polite">0</b>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">Oceanfront living · Endless sunsets</p>
+        <h1 id="hero-title">Stay where the<br>day <em>slows down.</em></h1>
+        <p class="hero-copy">Unhurried mornings, salt-air afternoons, and a front-row seat to golden hour—every single evening.</p>
+      </div>
+      <form class="search-bar" id="stay-search" aria-label="Search resort availability">
+        <label><span>Check in</span><input type="date" id="check-in" name="check-in" required></label>
+        <span class="field-divider" aria-hidden="true"></span>
+        <label><span>Check out</span><input type="date" id="check-out" name="check-out" required></label>
+        <span class="field-divider" aria-hidden="true"></span>
+        <label>
+          <span>Guests</span>
+          <select id="guests" name="guests" aria-label="Number of guests">
+            <option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option>
+            <option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option>
+          </select>
+        </label>
+        <button class="search-button" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><span>Find an escape</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="rooms-section catalogue-section" id="catalogue" aria-labelledby="catalogue-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">The Sunset collection</p><h2 id="catalogue-title">Your private piece<br>of the coast.</h2></div>
+        <p>Choose a place to wake up, then add the rituals and adventures that make the days entirely your own.</p>
+      </div>
+
+      <div class="catalogue-tools">
+        <div class="product-search-wrap">
+          <label for="product-search">Search the collection</label>
+          <div class="product-search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+            <input type="search" id="product-search" placeholder="Try “villa”, “sailing”, or “spa”" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false">
+            <button class="search-clear-icon" id="search-clear-icon" type="button" aria-label="Clear catalogue search" hidden>×</button>
+          </div>
+          <div class="search-suggestions" id="search-suggestions" role="listbox" hidden></div>
+        </div>
+        <div class="category-filters" id="category-filters" aria-label="Filter catalogue by category">
+          <button class="active" type="button" data-category="All" aria-pressed="true">All</button>
+          <button type="button" data-category="Villas" aria-pressed="false">Villas</button>
+          <button type="button" data-category="Suites" aria-pressed="false">Suites</button>
+          <button type="button" data-category="Experiences" aria-pressed="false">Experiences</button>
+          <button type="button" data-category="Spa & Dining" aria-pressed="false">Spa &amp; Dining</button>
+        </div>
+        <div class="catalogue-selects">
+          <label class="catalogue-select" for="price-range">
+            <span>Price Range</span>
+            <select id="price-range" name="price-range">
+              <option value="all">All Prices</option>
+              <option value="under-150">Under $150</option>
+              <option value="150-350">$150 – $350</option>
+              <option value="350-plus">$350+</option>
+            </select>
+          </label>
+          <label class="catalogue-select" for="sort-by">
+            <span>Sort By</span>
+            <select id="sort-by" name="sort-by">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="popularity">Popularity</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="catalogue-status">
+        <div class="availability-note" id="availability-note" role="status" aria-live="polite">
+          <span class="availability-dot"></span>
+          <p><strong id="result-count">6 offerings</strong> for <strong id="date-summary">your selected dates</strong> · <strong id="guest-summary">2 guests</strong></p>
+        </div>
+      </div>
+      <div class="catalogue-grid" id="product-grid"></div>
+      <div class="catalogue-empty" id="catalogue-empty" hidden>
+        <span aria-hidden="true">☼</span><h3>No matching offerings found</h3>
+        <p>Try another keyword or return to the full Sunset collection.</p>
+        <button type="button" id="clear-search">Clear Search</button>
+      </div>
+    </section>
+
+    <section class="story-section" id="story" aria-labelledby="story-title">
+      <p class="eyebrow light">The Sunset way</p>
+      <h2 id="story-title">Barefoot ease.<br><em>Beautifully considered.</em></h2>
+      <p>From the first coffee on your terrace to the last glow over the water, everything here is designed around the pleasure of taking your time.</p>
+    </section>
+    <section class="experience-strip" id="experiences" aria-label="Resort experiences">
+      <div><span>01</span><h3>Sunset sailing</h3><p>Drift into golden hour aboard our private catamaran.</p></div>
+      <div><span>02</span><h3>Ocean-to-table</h3><p>Fresh coastal ingredients served under an open sky.</p></div>
+      <div><span>03</span><h3>Stillness by the sea</h3><p>Slow rituals, salt air, and treatments inspired by the island.</p></div>
+    </section>
+    <section class="account-section" id="account" aria-labelledby="account-title">
+      <div><p class="eyebrow">Your Sunset account</p><h2 id="account-title">Every detail,<br><em>remembered.</em></h2></div>
+      <div>
+        <p id="account-copy">Save favorite stays, revisit your itinerary, and keep every part of your escape together.</p>
+        <button type="button" id="account-button" data-open-account data-account-default="register">Sign in or create an account</button>
+        <div class="account-session" id="account-session" hidden>
+          <p>Welcome back, <strong id="account-guest-name"></strong>. Your Sunset account is active on this device.</p>
+          <button type="button" id="account-logout">Log Out</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"></span><span><strong>Sunset</strong><small>Resort</small></span></a>
+    <p>Where the horizon feels like home.</p><p class="footer-note">Reservations · hello@sunsetresort.example · +1 555 014 8080</p>
+  </footer>
+
+  <div class="cart-backdrop" data-close-cart></div>
+  <aside class="booking-cart" id="booking-cart" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-header"><div><p class="eyebrow">Your escape</p><h2 id="cart-title">My stay</h2></div><button class="cart-close" type="button" data-close-cart aria-label="Close booking cart">×</button></div>
+    <div class="cart-dates">
+      <p><span>Check in</span><strong id="cart-check-in">—</strong></p><i aria-hidden="true"></i><p><span>Check out</span><strong id="cart-check-out">—</strong></p>
+      <p><span>Guests</span><strong id="cart-guests">2</strong></p>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="empty-cart" id="empty-cart"><span aria-hidden="true">☼</span><h3>Your escape starts here.</h3><p>Choose a stay or experience and it will appear here.</p><button type="button" data-close-cart>Explore the collection</button></div>
+    <div class="cart-footer" id="cart-footer" hidden>
+      <div class="cart-summary" aria-label="Booking cost summary">
+        <div><span>Items subtotal</span><strong id="cart-subtotal">$0</strong></div>
+        <div><span>Resort fees <small>$45 per room, per night</small></span><strong id="cart-fees">$0</strong></div>
+        <div><span>Estimated tax <small>12.5%</small></span><strong id="cart-tax">$0</strong></div>
+        <div class="cart-total"><span>Grand total <small id="night-count"></small></span><strong id="cart-total">$0</strong></div>
+      </div>
+      <p>Totals update automatically when dates or quantities change.</p><button type="button" id="checkout-button">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
+    <button class="product-dialog-close" type="button" data-close-details aria-label="Close product details">×</button>
+    <div class="product-dialog-image" id="product-dialog-image" role="img"></div>
+    <div class="product-dialog-content">
+      <div class="product-dialog-badges"><span class="category-tag" id="product-dialog-category"></span><span class="availability-badge" id="product-dialog-availability"></span></div>
+      <p class="eyebrow">Sunset Resort collection</p>
+      <div class="product-dialog-heading"><h2 id="product-dialog-title"></h2><p class="price"><strong id="product-dialog-price"></strong><span id="product-dialog-unit"></span></p></div>
+      <p class="product-dialog-description" id="product-dialog-description"></p>
+      <div class="product-meta" id="product-dialog-meta"></div>
+      <p class="product-stock-note" id="product-dialog-stock"></p>
+      <button class="add-stay" id="product-dialog-add" type="button">Add to my stay</button>
+    </div>
+  </dialog>
+
+  <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-dialog-title">
+    <button class="account-dialog-close" type="button" data-close-account aria-label="Close account window">×</button>
+    <div class="account-dialog-intro">
+      <p class="eyebrow light">Sunset Resort guests</p>
+      <h2 id="account-dialog-title">Your stay,<br><em>remembered.</em></h2>
+      <p>Keep your details and future escapes together on this device.</p>
+    </div>
+    <div class="account-dialog-form-area">
+      <div class="account-tabs" role="tablist" aria-label="Account access">
+        <button class="active" type="button" id="register-tab" role="tab" aria-selected="true" aria-controls="register-panel" data-account-tab="register">Register</button>
+        <button type="button" id="login-tab" role="tab" aria-selected="false" aria-controls="login-panel" data-account-tab="login">Log In</button>
+      </div>
+
+      <section class="account-panel" id="register-panel" role="tabpanel" aria-labelledby="register-tab">
+        <div class="form-alert" id="register-alert" role="alert" hidden></div>
+        <form id="register-form" novalidate>
+          <label>Full Name<input type="text" id="register-name" name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" id="register-email" name="email" autocomplete="email" required></label>
+          <label>Phone<input type="tel" id="register-phone" name="phone" autocomplete="tel" required></label>
+          <label>Password
+            <span class="password-field"><input type="password" id="register-password" name="password" autocomplete="new-password" required><button type="button" data-toggle-password="register-password" aria-label="Show password"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button></span>
+          </label>
+          <label>Confirm Password
+            <span class="password-field"><input type="password" id="register-confirm" name="confirmPassword" autocomplete="new-password" required><button type="button" data-toggle-password="register-confirm" aria-label="Show password"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button></span>
+          </label>
+          <button class="account-submit" type="submit">Create my account</button>
+        </form>
+      </section>
+
+      <section class="account-panel" id="login-panel" role="tabpanel" aria-labelledby="login-tab" hidden>
+        <div class="form-alert" id="login-alert" role="alert" hidden></div>
+        <form id="login-form" novalidate>
+          <label>Email<input type="email" id="login-email" name="email" autocomplete="email" required></label>
+          <label>Password
+            <span class="password-field"><input type="password" id="login-password" name="password" autocomplete="current-password" required><button type="button" data-toggle-password="login-password" aria-label="Show password"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button></span>
+          </label>
+          <button class="account-submit" type="submit">Log in</button>
+        </form>
+      </section>
+      <p class="account-security-note">Prototype account data is stored only in this browser. Passwords are hashed before storage.</p>
+    </div>
+  </dialog>
+
+  <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+    <button class="checkout-dialog-close" type="button" data-close-checkout aria-label="Close checkout">×</button>
+    <div id="checkout-flow">
+      <header class="checkout-header">
+        <p class="eyebrow">Secure booking simulation</p>
+        <h2 id="checkout-title">Complete your escape.</h2>
+        <p>Confirm your stay details, review the order, and choose a simulated payment method.</p>
+      </header>
+      <div class="checkout-grid">
+        <form class="checkout-form" id="checkout-form" novalidate>
+          <div class="checkout-alert" id="checkout-alert" role="alert" hidden></div>
+
+          <fieldset>
+            <legend>Guest details</legend>
+            <div class="checkout-fields two-column">
+              <label>Full Name<input type="text" id="checkout-name" autocomplete="name" required></label>
+              <label>Email<input type="email" id="checkout-email" autocomplete="email" required></label>
+              <label>Phone<input type="tel" id="checkout-phone" autocomplete="tel" required></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Stay address &amp; arrival</legend>
+            <div class="checkout-fields two-column">
+              <label class="full-field">Street Address<input type="text" id="checkout-street" autocomplete="street-address" required></label>
+              <label>City<input type="text" id="checkout-city" autocomplete="address-level2" required></label>
+              <label>Country<input type="text" id="checkout-country" autocomplete="country-name" required></label>
+              <label>Check-in Date<input type="date" id="checkout-checkin" required></label>
+              <label class="full-field">Special Notes<textarea id="checkout-notes" rows="3" placeholder="Celebrations, dietary needs, or arrival notes"></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment method</legend>
+            <div class="payment-options">
+              <label><input type="radio" name="payment-method" value="card" checked><span><strong>Credit / Debit Card</strong><small>Visa, Mastercard, or bank card simulation</small></span></label>
+              <label><input type="radio" name="payment-method" value="mobile"><span><strong>Mobile Money</strong><small>EcoCash, OneMoney, or InnBucks</small></span></label>
+            </div>
+
+            <div class="payment-panel" id="card-payment-panel">
+              <div class="checkout-fields two-column">
+                <label class="full-field">Cardholder Name<input type="text" id="cardholder-name" autocomplete="cc-name" required></label>
+                <label class="full-field">Card Number<input type="text" id="card-number" inputmode="numeric" autocomplete="cc-number" maxlength="23" placeholder="1234 5678 9012 3456" required></label>
+                <label>Expiry<input type="text" id="card-expiry" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY" required></label>
+                <label>CVV<input type="password" id="card-cvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="123" required></label>
+              </div>
+            </div>
+
+            <div class="payment-panel" id="mobile-payment-panel" hidden>
+              <div class="checkout-fields two-column">
+                <label>Provider
+                  <select id="mobile-provider" disabled required><option value="">Choose provider</option><option value="EcoCash">EcoCash</option><option value="OneMoney">OneMoney</option><option value="InnBucks">InnBucks</option></select>
+                </label>
+                <label>Mobile Number<input type="tel" id="mobile-number" inputmode="tel" autocomplete="tel" disabled required></label>
+                <label class="full-field">PIN / OTP Simulation<input type="password" id="mobile-pin" inputmode="numeric" maxlength="6" disabled required></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="payment-simulation-note">Simulation only—no real payment is processed or transmitted.</p>
+          <div class="payment-actions">
+            <button class="simulate-failure" type="button" id="simulate-failure">Simulate Unsuccessful Payment</button>
+            <button class="simulate-success" type="button" id="simulate-success">Simulate Successful Payment</button>
+          </div>
+        </form>
+
+        <aside class="checkout-summary" aria-labelledby="checkout-summary-title">
+          <p class="eyebrow">Order summary</p>
+          <h3 id="checkout-summary-title">Your Sunset itinerary</h3>
+          <div class="checkout-summary-dates"><span id="checkout-summary-dates"></span><span id="checkout-summary-guests"></span></div>
+          <div class="checkout-summary-items" id="checkout-summary-items"></div>
+          <div class="checkout-summary-totals">
+            <div><span>Items subtotal</span><strong id="checkout-subtotal">$0</strong></div>
+            <div><span>Resort fees</span><strong id="checkout-fees">$0</strong></div>
+            <div><span>Estimated tax</span><strong id="checkout-tax">$0</strong></div>
+            <div class="grand-total"><span>Grand total</span><strong id="checkout-total">$0</strong></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <section class="receipt-view" id="receipt-view" aria-labelledby="receipt-title" hidden>
+      <div class="receipt-mark" aria-hidden="true">✓</div>
+      <p class="eyebrow">Booking confirmed</p>
+      <h2 id="receipt-title">Your escape is reserved.</h2>
+      <p>A confirmation receipt has been created for <strong id="receipt-guest"></strong>.</p>
+      <div class="receipt-reference"><span>Booking reference</span><strong id="receipt-reference"></strong></div>
+      <div class="receipt-details" id="receipt-details"></div>
+      <div class="receipt-items" id="receipt-items"></div>
+      <div class="receipt-total"><span>Paid in simulation</span><strong id="receipt-total"></strong></div>
+      <button type="button" id="receipt-done">Done</button>
+    </section>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

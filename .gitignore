@@ -127,6 +127,12 @@ dist
 
 # Stores Visual Studio Code versions used for testing Visual Studio Code extensions
 .vscode-test
+.vscode/
+
+# Python / Flask
+.venv/
+__pycache__/
+*.py[cod]
 
 # pnpm
 .pnpm-store
