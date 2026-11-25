@@ -122,10 +122,9 @@ const API_TOKEN_STORAGE_KEY = 'sunsetResortApiTokenV1';
 const API_USER_STORAGE_KEY = 'sunsetResortApiUserV1';
 const TAX_RATE = 0.125;
 const RESORT_FEE_PER_ROOM_NIGHT = 45;
-const state = { items: [], query: '', category: 'All', priceRange: 'all', sortBy: 'featured', activeProductId: null, currentUser: null };
-const API_BASE_URL = window.SUNSET_API_BASE_URL
-  || (window.location.port === '5000' ? `${window.location.origin}/api` : 'http://127.0.0.1:5000/api');
-let activeSuggestionIndex = -1;
+const state = { items: [], query: '', category: 'All', priceRange: 'all', sortBy: 'featured', activeProductId: null, currentUser: null }
+let activeSuggestionIndex = -1;const API_BASE_URL = window.SUNSET_API_BASE_URL
+  || (window.location.protocol.startsWith('http') ? `${window.location.origin}/api` : 'http://127.0.0.1:5000/api');
 let lastFocusedElement;
 
 async function apiRequest(path, options = {}) {
